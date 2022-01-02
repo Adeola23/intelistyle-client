@@ -1,8 +1,7 @@
-import { useCallback, useEffect, useState } from "react";
+import { useState } from "react";
 import './App.css';
 import SearchBar from "./Components/SearchBar/SearchBar";
 import Header from "./Components/HomeBar/Header";
-import useSearched from "./hooks/useSearched"
 import CardList from "./Components/CardList/cardlist.component.js"
 import Axios from 'axios'
 
