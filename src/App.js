@@ -1,7 +1,7 @@
 import { useState } from "react";
 import './App.css';
-import SearchBar from "./Components/SearchBar/SearchBar";
-import Header from "./Components/HomeBar/Header";
+import SearchBarComponent from "./Components/SearchBar/SearchBar.component";
+import HeaderComponent from "./Components/HomeBar/header.component";
 import CardList from "./Components/CardList/cardlist.component.js"
 import Axios from 'axios'
 
@@ -9,15 +9,17 @@ import Axios from 'axios'
 const App = () => {
     const [search, setSearched] = useState('')
     const [garment, setGarment] = useState([])
+    const [isLoading, setLoading] = useState(false)
+
 
     const handleSearch = (e) =>{
         setSearched(e.target.value)
-        console.log(search)
+
 
     }
 // proud moment :)
     const handleOnClick = async () =>{
-
+        setLoading(true)
         Axios({
             method: 'GET',
             url: `https://intelistyle-backend.herokuapp.com/find/${search}`,
@@ -27,6 +29,7 @@ const App = () => {
         }).then(response =>{
 
             setGarment(response.data)
+            setLoading(false)
             console.log(garment)
 
         })
@@ -61,13 +64,16 @@ const App = () => {
   return (
 
     <div className="App">
-        <Header/>
-        <SearchBar
+        <HeaderComponent/>
+        <SearchBarComponent
             placeholder="Search..."
             onChange={handleSearch}
             onClick={handleOnClick}
         />
-        <CardList garments={garment}/>
+        <CardList
+            garments={garment}
+            isLoading ={isLoading}
+        />
 
     </div>
   );

@@ -1,7 +1,7 @@
 import React from 'react';
-import  './Header.css'
+import  './header.style.css'
 
-const Header = () => {
+const HeaderComponent = () => {
     return (
         <div className="homebar">
             <h1>
@@ -13,4 +13,4 @@ const Header = () => {
 
 }
 
-export default Header
+export default HeaderComponent

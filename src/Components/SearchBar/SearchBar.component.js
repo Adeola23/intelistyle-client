@@ -1,7 +1,7 @@
 import React from 'react'
-import './SearchBar.css'
+import './SearchBar.style.css'
 
-const SearchBar = ({placeholder,onChange, onClick}) =>{
+const SearchBarComponent = ({placeholder,onChange, onClick}) =>{
 
     return (
             <div className="searchInput">
@@ -19,4 +19,4 @@ const SearchBar = ({placeholder,onChange, onClick}) =>{
     )
 }
 
-export default SearchBar
+export default SearchBarComponent
