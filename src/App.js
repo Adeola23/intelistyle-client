@@ -21,7 +21,7 @@ const App = () => {
 
         Axios({
             method: 'GET',
-            url: `http://localhost:8000/find/${search}`,
+            url: `https://intelistyle-backend.herokuapp.com/find/${search}`,
             headers:{
                 "Content-Type": "application/json"
             }
