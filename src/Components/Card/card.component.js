@@ -1,15 +1,23 @@
 import React from 'react'
 import './card.style.css'
+import ClipLoader from "react-spinners/ClipLoader";
 
-const Card = ({item}) =>{
+const Card = ({item, isLoading}) =>{
 
     return (
         <div className="Card">
-            <div className={'card-container'}>
-                <img src={item.image_urls[0]} alt="garments"/>
-                <h1 className={'img-h1'}>{item.product_title}</h1>
-                <h2 className={'img-h2'}>{item.price} usd</h2>
-            </div>
+            {
+                isLoading ?
+                    (<ClipLoader isLoading={isLoading} size={60} />)
+                    :
+                    (<div className={'card-container'}>
+                        <img src={item.image_urls[0]} alt="garments"/>
+                        <h1 className={'img-h1'}>{item.product_title}</h1>
+                        <h2 className={'img-h2'}>{item.price} usd</h2>
+                    </div>)
+            }
+
+
 
 
         </div>

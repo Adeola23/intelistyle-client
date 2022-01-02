@@ -30,7 +30,7 @@ const App = () => {
 
             setGarment(response.data)
             setLoading(false)
-            console.log(garment)
+
 
         })
     }
