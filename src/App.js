@@ -30,11 +30,9 @@ const App = () => {
         }).then(response =>{
 
             setGarment(response.data)
+            setLoading(false)
             console.log(response.data)
-            setTimeout(()=> {
-                setLoading(false)
 
-            }, 1000)
 
 
 
