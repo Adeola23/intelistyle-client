@@ -23,16 +23,18 @@ const App = () => {
         setLoading(true)
         Axios({
             method: 'GET',
-            url: `https://intelistyle-backend.herokuapp.com/${search}`,
+            url: `https://intelistyle-backend.herokuapp.com/find/${search}`,
             headers:{
                 "Content-Type": "application/json"
             }
         }).then(response =>{
 
             setGarment(response.data)
-            setLoading(false)
             console.log(response.data)
+            setTimeout(()=> {
+                setLoading(false)
 
+            }, 1000)
 
 
 
