@@ -3,6 +3,7 @@ import './App.css';
 import SearchBarComponent from "./Components/SearchBar/SearchBar.component";
 import HeaderComponent from "./Components/HomeBar/header.component";
 import CardList from "./Components/CardList/cardlist.component.js"
+import ClipLoader from "react-spinners/ClipLoader";
 import Axios from 'axios'
 
 
@@ -22,14 +23,19 @@ const App = () => {
         setLoading(true)
         Axios({
             method: 'GET',
-            url: `https://intelistyle-backend.herokuapp.com/find/${search}`,
+            url: `https://intelistyle-backend.herokuapp.com/${search}`,
             headers:{
                 "Content-Type": "application/json"
             }
         }).then(response =>{
 
             setGarment(response.data)
-            setLoading(false)
+            console.log(response.data)
+            setTimeout(()=> {
+                setLoading(false)
+
+            }, 1000)
+
 
 
         })
@@ -70,10 +76,17 @@ const App = () => {
             onChange={handleSearch}
             onClick={handleOnClick}
         />
-        <CardList
-            garments={garment}
-            isLoading ={isLoading}
-        />
+        {
+            isLoading ?
+                ( <ClipLoader  isLoading={isLoading} size={150} />) :
+
+                (<CardList
+                    garments={garment}
+                    isLoading ={isLoading}
+                />)
+        }
+
+
 
     </div>
   );
