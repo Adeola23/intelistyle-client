@@ -41,6 +41,14 @@ const App = () => {
         })
     }
 
+    const handleKeypress = event => {
+        //it triggers by pressing the enter key
+        if (event.keyCode === 13  || event.which === 13)  {
+            handleOnClick();
+        }
+    };
+
+
     // const handleOnClick = async () =>{
     //     useEffect(()=>{
     //         fetch(`http://localhost:8000/find/${search}`)
@@ -75,6 +83,7 @@ const App = () => {
             placeholder="Search..."
             onChange={handleSearch}
             onClick={handleOnClick}
+            onKeyPress={handleKeypress}
         />
         {
             isLoading ?

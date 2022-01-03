@@ -1,7 +1,7 @@
 import React from 'react'
 import './SearchBar.style.css'
 
-const SearchBarComponent = ({placeholder,onChange, onClick}) =>{
+const SearchBarComponent = ({placeholder,onChange, onClick, onKeyPress}) =>{
 
     return (
             <div className="searchInput">
@@ -9,6 +9,7 @@ const SearchBarComponent = ({placeholder,onChange, onClick}) =>{
                        type="text"
                        placeholder={placeholder}
                        onChange = {onChange}
+                       onKeyPress={onKeyPress}
                 />
                 <button className="btn"
                         onClick={onClick}
